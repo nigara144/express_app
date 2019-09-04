@@ -40,11 +40,15 @@
 
 // module.exports = app;
 
-var express = require("express"),
-	app     = express();
+var express = require("express");
+var app     = express();
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.set("view engine", "ejs");
 
 app.get("/", function(req,res){
-	res.send("Hello World");
+	res.render("landing");
 });
 
 app.listen(8080, function(){
